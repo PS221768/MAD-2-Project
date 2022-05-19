@@ -8,15 +8,15 @@ import { createStackNavigator } from '@react-navigation/stack';
 const Stack = createStackNavigator();
 // import { Image } from 'react-native-web';
 const staticImage = require("/MAD2/TTTM/assets/logo.png");
-export default function App() {
+export default function App({navigation}) {
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.menu}>
-        <TouchableOpacity>
-          <Text style={styles.text}>Computer</Text>
+        <TouchableOpacity  mode="contained" onPress={() => navigation.navigate("Singleplayer")}>
+          <Text style={styles.text}>Singleplayer</Text>
         </TouchableOpacity>
         <Image style={styles.imgLogo} source={staticImage}></Image>
-        <TouchableOpacity>
+        <TouchableOpacity  mode="contained" onPress={() => navigation.navigate("Multiplayer")}>
           <Text style={styles.text}>Multiplayer</Text>
         </TouchableOpacity>
       </View>
@@ -25,6 +25,7 @@ export default function App() {
     </SafeAreaView>
   );
 }
+
 
 const styles = StyleSheet.create({
   container: {
